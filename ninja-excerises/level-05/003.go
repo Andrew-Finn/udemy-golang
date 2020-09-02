@@ -1,13 +1,42 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+type vehicle struct {
+	doors int
+	color string
+}
+
+type truck struct {
+	vehicle
+	fourWheel bool
+}
+
+type sedan struct {
+	vehicle
+	luxury bool
+}
 
 func main() {
-	x := []int{42, 43, 44, 45 ,46, 47, 48, 49, 50, 51}
-	fmt.Println(x[:5])
-	fmt.Println(x[5:])
-	fmt.Println(x[2:7])
-	fmt.Println(x[1:6])
-	fmt.Println(x)
+	t1 := truck{
+		vehicle: vehicle{
+			doors: 6,
+			color: "white",
+		},
+		fourWheel: true,
+	}
 
+	s1 := sedan{
+		vehicle: vehicle{
+			doors: 4,
+			color: "black",
+		},
+		luxury: false,
+	}
+	fmt.Println(t1)
+	fmt.Println(s1)
+	fmt.Println(t1.doors)
+	fmt.Println(s1.doors)
 }
